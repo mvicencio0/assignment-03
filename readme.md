@@ -33,7 +33,7 @@
           virtual ~Shape() {}
           ```
 
-          This allowes for child classes being handled through a pointer of
+          This allows for child classes being handled through a pointer of
           type `Shape` to have their destructors called when the variable goes
           out of scope or is `delete`d (search "cpp polymorphism").
 
