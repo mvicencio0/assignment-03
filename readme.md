@@ -23,17 +23,17 @@
     - `Shape`
         - Must contain the following pure virtual function:
 
-            ```c++
-            virtual bool contains(const Point & p) const = 0;
-            ```
+          ```c++
+          virtual bool contains(const Point & p) const = 0;
+          ```
 
         - Should also contain a virtual default destructor:
 
-            ```c++
-            virtual ~Shape() {}
-            ```
+          ```c++
+          virtual ~Shape() {}
+          ```
 
-          This allowes for child classes being handled through a pointer of
+          This allows for child classes being handled through a pointer of
           type `Shape` to have their destructors called when the variable goes
           out of scope or is `delete`d (search "cpp polymorphism").
 
@@ -50,21 +50,21 @@
 
 - Write a function with the following prototype (probably in `main.cpp`):
 
-    ```c++
-    /**
-     * A function to draw the `Shape`s in `s` in a terminal.
-     *
-     * Arguments:
-     * - `count`: The number of `Shape`s in `s`.
-     * - `s`: An array containing pointers to each `Shape` to draw.
-     *
-     * Notes:
-     * - A terminal window is typically 80 columns wide by 25 lines high.
-     * - The width:height aspect ratio of a terminal character is approximately
-     *   1:1.9.
-     */
-    void draw(const int count, const Shape * const s[]);
-    ```
+  ```c++
+  /**
+   * A function to draw the `Shape`s in `s` in a terminal.
+   *
+   * Arguments:
+   * - `count`: The number of `Shape`s in `s`.
+   * - `s`: An array containing pointers to each `Shape` to draw.
+   *
+   * Notes:
+   * - A terminal window is typically 80 columns wide by 25 lines high.
+   * - The width:height aspect ratio of a terminal character is approximately
+   *   1:1.9.
+   */
+  void draw(const int count, const Shape * const s[]);
+  ```
 
   This function should iterate through every column on every line.  If the
   point represented by the character at that location is contained in any of
@@ -84,39 +84,39 @@
 
 - Use the following template for `main()`:
 
-    ```c++
-    int main() {
-        // declare constants for the number of frames to draw and the
-        // amount of time to sleep after drawing each frame
+  ```c++
+  int main() {
+      // declare constants for the number of frames to draw and the
+      // amount of time to sleep after drawing each frame
 
-        // for each frame
+      // for each frame
 
-            // create some shapes (with values depending on the current frame
-            // number)
+          // create some shapes (with values depending on the current frame
+          // number)
 
-            // put pointers to them in an array
-            //
-            // for example, given a `Rectangle r` and a `Square s`:
-            Shape * shapes[] = { &r, &s, };
-            // this is possible because `Rectangle`s and `Squares`, and all
-            // your other shapes, inherit from `Shape`
+          // put pointers to them in an array
+          //
+          // for example, given a `Rectangle r` and a `Square s`:
+          Shape * shapes[] = { &r, &s, };
+          // this is possible because `Rectangle`s and `Squares`, and all
+          // your other shapes, inherit from `Shape`
 
-            // draw the shapes in the terminal
-            //
-            // for example, given the `shapes` array above:
-            draw( sizeof(shapes) / sizeof(Shape *), shapes );
+          // draw the shapes in the terminal
+          //
+          // for example, given the `shapes` array above:
+          draw( sizeof(shapes) / sizeof(Shape *), shapes );
 
-            // wait before drawing the next frame
-            //
-            // for example:
-            std::this_thread::sleep_for(std::chrono::milliseconds(frameSleep));
-            // if you'd like to know more about what this line is doing, look
-            // up the documentation for `std::this_thread::sleep_for` and
-            // `std::chrono::milliseconds()`.
+          // wait before drawing the next frame
+          //
+          // for example:
+          std::this_thread::sleep_for(std::chrono::milliseconds(frameSleep));
+          // if you'd like to know more about what this line is doing, look
+          // up the documentation for `std::this_thread::sleep_for` and
+          // `std::chrono::milliseconds()`.
 
-        return 0;  // success
-    }
-    ```
+      return 0;  // success
+  }
+  ```
 
   If you'd like to write your `main()` in a different way that's fine, so long
   as it accomplishes the same goal.
@@ -137,16 +137,16 @@
 - Use "include guards" in all `.h` files.  Be sure to give the preprocessor
   variable a name corresponding to the file name.  For example, in `point.h`:
 
-    ```c++
-    #ifndef POINT_H
-    #define POINT_H
-    // ----------------------------------------------------------------------------
+  ```c++
+  #ifndef POINT_H
+  #define POINT_H
+  // ----------------------------------------------------------------------------
 
-    // ... everything besides the copyright information and file description
+  // ... everything besides the copyright information and file description
 
-    // ----------------------------------------------------------------------------
-    #endif  // POINT_H
-    ```
+  // ----------------------------------------------------------------------------
+  #endif  // POINT_H
+  ```
 
 #### Style
 
@@ -158,16 +158,16 @@
 - Include your copyright and license information at the top of every file,
   followed by a brief description of the file's contents, e.g.
 
-    ```c++
-    /* ----------------------------------------------------------------------------
-     * Copyright &copy; 2015 Ben Blazak <bblazak@fullerton.edu>
-     * Released under the [MIT License] (http://opensource.org/licenses/MIT)
-     * ------------------------------------------------------------------------- */
+  ```c++
+  /* ----------------------------------------------------------------------------
+   * Copyright &copy; 2015 Ben Blazak <bblazak@fullerton.edu>
+   * Released under the [MIT License] (http://opensource.org/licenses/MIT)
+   * ------------------------------------------------------------------------- */
 
-    /**
-     * A short program to print "Hello World!" to standard output.
-     */
-    ```
+  /**
+   * A short program to print "Hello World!" to standard output.
+   */
+  ```
 
 
 ### Assumptions
